@@ -1,0 +1,91 @@
+body{
+    font-family: 'Helvetica Neue';
+    background: #f0ede9;
+}
+header:before{
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 0.25em;
+    background: #D62F2F;
+}
+header{
+    position: fixed;
+    top: 0.25em;
+    left: 0;
+    right: 0;
+    height: 4em;
+    background: #e3e0d5;
+    padding: 0;
+}
+header:after{
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 4.25em;
+    right: 0;
+    height: 0.5em;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.35)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+}
+header figure:after{
+    content: 'MrMichael';
+    display: block;
+    position: fixed;
+    left:0;
+    top: 0;
+}
+header nav{
+    position: fixed;
+    right: 0;
+    top: 0.25em;
+    height: 4em;
+}
+header ul{
+    list-style: none;
+    padding: 0.5em;
+    height: 3em;
+    margin: 0;
+    vertical-align: middle;
+}
+header nav ul li{
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0.125em 0.5em;
+    padding: 0.75em;
+    transition: background 0.25s, color 0.25s;
+    font-weight: bold;
+}
+header nav ul li.selected, header nav ul li:hover{
+    background: #D62F2F;
+    color: #fffefc;
+}
+.main-content{
+    margin: 0.5em;
+    margin-top: 5em;
+}
+article{
+    background-color: #fffefc;
+    /*width: calc(100% - 2em);*/
+    padding: 1em;
+    min-height: 10em;
+    min-width: 10em;
+    width: 35em;
+}
+h1{
+    font-weight: 100;
+    font-size: 5em;
+    padding: 0;
+    margin: 0;
+}
