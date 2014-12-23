@@ -31,8 +31,8 @@ class Translatable(models.Model):
 
 
 class Page(Streamable):
-    url = models.CharField(max_length=20, default='')
-    header_bg = models.CharField(max_length=128, default='')
+    url = models.CharField(max_length=20, default='', blank=True)
+    header_bg = models.CharField(max_length=128, default='', blank=True)
 
     def get_page_text(self, lang=None):
         if not lang:
