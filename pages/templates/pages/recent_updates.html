@@ -1,0 +1,9 @@
+
+<h2>Recently</h2>
+<p>
+    <ul>
+        {% for update in recent_updates %}
+        <li><a href="{{update.url}}">{{update.title}}</a></li>
+        {% endfor %}
+    </ul>
+</p>

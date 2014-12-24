@@ -3,6 +3,7 @@ from django.contrib import admin
 
 urlpatterns = patterns(
     '',
-    url(r'^$', include('pages.urls')),
+    url(r'^$', 'pages.views.index'),
+    url(r'^page/', include('pages.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

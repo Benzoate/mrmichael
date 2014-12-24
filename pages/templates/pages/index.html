@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load pages_tags %}
 <html>
     <head>
         <title>MrMichael</title>
@@ -6,15 +7,17 @@
     </head>
     <body>
         <header>
-            <figure>
-                <img src="{% static "pages/logo.png"%}" >
-            </figure>
+            <a href="/">
+                <figure>
+                    <img src="{% static "pages/logo.png"%}" >
+                </figure>
+            </a>
             <nav>
                 <ul>
-                    <li class="selected">Blog</li>
-                    <li>About</li>
-                    <li>Pictures</li>
-                    <li>Résumé</li>
+                    <li class="selected"><a href="/">Blog</a></li>
+                    <li><a href="/page/about/">About</a></li>
+                    {# <li><a href="/page/pictures/">Pictures</a></li> #}
+                    <li><a href="/page/resume/">Résumé</a></li>
                 </ul>
             </nav>
         </header>
@@ -23,11 +26,11 @@
                 {% with page_text=page.page_text %}
                 <article>
                     <section {% if page.header_bg %} class="article-header has-background" style="background-image: url('{{page.header_bg}}');"{% else %}class="article-header"{% endif %}>
-                        <h1>{{page_text.title}}</h1>
+                        <h1><a href="/page/{{page.url}}/">{{page_text.title}}</a></h1>
                     </section>
                     {{page_text.text|safe}}
                     
-                    <p class="published-date">{{page.last_updated_date}}</p>
+                    <p class="published-date">{% if page.published %}{{page.last_updated_date}}{% endif %}</p>
                 </article>
                 {% endwith %}
             {% endfor %}
@@ -47,21 +50,7 @@
                 </p>
             </article>
             <article>
-                <h2>Recently</h2>
-                <p>
-                <ul>
-                    <li><a href="">Candy Japan</a></li>
-                    <li><a>Nanode</a></li>
-                    <li><a>Seene</a></li>
-                    <li><a>Beginning</a></li>
-                    <li><a href="">Candy Japan</a></li>
-                    <li><a>Nanode</a></li>
-                    <li><a>Seene</a></li>
-                    <li><a>Beginning</a></li>
-                    <li><a>Seene</a></li>
-                    <li><a>Beginning</a></li>
-                </ul>
-                </p>
+                {% recent_updates %}
             </article>
         </section>
     </body>
