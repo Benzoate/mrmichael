@@ -56,12 +56,13 @@ header nav ul li{
     display: inline-block;
     vertical-align: middle;
     margin: 0.125em 0.5em;
-    padding: 0.75em;
     transition: background 0.25s, color 0.25s;
     font-weight: bold;
 }
 header nav a{
     text-decoration: none;
+    display: block;
+    padding: 0.75em;
 }
 header nav ul li.selected, header nav ul li:hover{
     background: #D62F2F;
