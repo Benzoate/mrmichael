@@ -1,27 +1,7 @@
+{% extends "pages/base.html" %}
 {% load staticfiles %}
 {% load pages_tags %}
-<html>
-    <head>
-        <title>MrMichael</title>
-        <link type="text/css" rel="stylesheet" href="{% static "pages/style.css"%}">
-    </head>
-    <body>
-        <header>
-            <a href="/">
-                <figure>
-                    <img src="{% static "pages/logo.png"%}" >
-                </figure>
-            </a>
-            <nav>
-                <ul>
-                    <li {% if is_blog %}class="selected"{% endif %}><a href="/">Blog</a></li>
-                    <li {% if is_about %}class="selected"{% endif %}><a href="/page/about/">About</a></li>
-                    {# <li><a {% if is_pictures %}class="selected"{% endif %} href="/page/pictures/">Pictures</a></li> #}
-                    <li {% if is_resume %}class="selected"{% endif %}><a href="/page/resume/">Résumé</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section class="main-content">
+            {% block main_content %}
             {% for page in pages %}
                 {% with page_text=page.page_text %}
                 <article>
@@ -34,24 +14,4 @@
                 </article>
                 {% endwith %}
             {% endfor %}
-        </section>
-        <section class="side-content">
-            <article>
-                <h2>Michael</h2>
-                <img src="{% static "pages/michael.jpg"%}" >
-                <p>
-                Software Developer from Nottingham – United Kingdom. Speaker of Japanese. Fan of tokusatsu and loud music. Eater of food.
-                </p>
-            </article>
-            <article>
-                <h2>Hire me</h2>
-                <p>
-                Looking for an awesome developer who enjoys working on the front end? Working on an exciting project? Based in not the UK? Email me: michael@mrmichael.co.uk
-                </p>
-            </article>
-            <article>
-                {% recent_updates %}
-            </article>
-        </section>
-    </body>
-</html>
+            {% endblock %}

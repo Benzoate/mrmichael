@@ -8,6 +8,7 @@ class PageTextInlineForm(forms.ModelForm):
 
     class Meta:
         model = models.PageText
+        fields = '__all__'
 
 
 class PageTextInline(admin.TabularInline):

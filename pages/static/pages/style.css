@@ -172,6 +172,44 @@ h2{
     margin-top: 4em;
     padding: 0;
 }
+.album-container {
+    display: inline-block;
+    width: 12em;
+    height: 8em;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    font-size: 1.45em;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    position: relative;
+    z-index: 0;
+}
+.album-container:after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 29%, rgba(0,0,0,0.6) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(29%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.6)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.6) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.6) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.6) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#99000000',GradientType=0 );
+}
+.album-container p{
+    margin: 0;
+    position: absolute;
+    bottom: 0.5em;
+    left: 0.5em;
+    z-index: 1;
+}
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (min-device-width : 320px) 

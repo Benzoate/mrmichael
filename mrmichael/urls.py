@@ -5,5 +5,6 @@ urlpatterns = patterns(
     '',
     url(r'^$', 'pages.views.index'),
     url(r'^page/', include('pages.urls')),
+    url(r'^pictures/', include('pictures.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
