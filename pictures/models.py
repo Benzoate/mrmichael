@@ -37,7 +37,10 @@ class Album(page_models.Streamable):
         return info
 
     def stream_title(self):
-        return self.get_album_information().title
+        try:
+            return self.get_album_information().title
+        except AttributeError:
+            return 'Untitled'
 
     def stream_url(self):
         return '/pictures/album/%s/' % (self.pk)

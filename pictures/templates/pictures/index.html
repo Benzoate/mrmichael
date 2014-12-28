@@ -5,7 +5,10 @@
     <h1>Albums</h1>
 
     {% for album in albums %}<a class="album-container" style="background-image: url('{{album.thumbnail}}');" href="{{album.url}}"
-    ><p>{{album.info.title}}</p
-    ></a>{% endfor %}
+    ><p>{%if not album.info%}Untitled - {{album.album.pk}}{%endif%}{{album.info.title}}</p
+    ></a>{% endfor %}<!--
+    -->{% if user.is_superuser %}<!--
+        --><a class="album-container" href="/pictures/album/new/"><p>New Album</p></a>
+    {% endif %}
 </article>
 {% endblock %}

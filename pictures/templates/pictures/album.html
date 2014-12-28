@@ -1,0 +1,17 @@
+{% extends "pages/base.html" %}
+{% load staticfiles %}
+{% block main_content %}
+<article>
+    <section>
+        <h1 {%if user.is_superuser%}contenteditable{%endif%}>{{album.stream_title}}</h1>
+        <small>Subtitle goes here</small>
+    </section>
+    <section class="album-images edit-mode">
+    {% for image in images %}<!--
+        --><a class="album-image-container" style="background-image: url('{{image.thumb}}');" href="{{image.full}}">
+            {%if user.is_superuser%}<section class="make-default-image">Make Default</section>{% endif %}
+        </a><!--
+    -->{% endfor %}
+    </section>
+</article>
+{% endblock %}
