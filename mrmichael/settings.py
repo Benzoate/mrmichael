@@ -105,6 +105,7 @@ STATICFILES_DIRS = (
 )
 
 if ON_HEROKU:
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     AWS_QUERYSTRING_AUTH = False
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
