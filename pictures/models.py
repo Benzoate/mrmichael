@@ -48,6 +48,12 @@ class Album(page_models.Streamable):
     def thumbnail_url(self):
         return '/pictures/thumb/%s/' % (self.thumbnail_id)
 
+    def subtitle(self):
+        try:
+            return self.get_album_information().subtitle
+        except AttributeError:
+            return ''
+
     class Meta:
         verbose_name = "Album"
         verbose_name_plural = "Albums"

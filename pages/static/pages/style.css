@@ -185,6 +185,7 @@ h2{
     text-decoration: none;
     position: relative;
     z-index: 0;
+    font-weight: 100;
 }
 .album-container:after{
     content: ' ';
@@ -215,7 +216,7 @@ h2{
     padding: 0.5em;
     background: rgba(0,0,0,0.3);
     opacity: 0;
-    transition: opacity: 0.5s;
+    transition: opacity 0.1s;
 }
 .album-images{
     margin: 1em 0;
@@ -254,5 +255,11 @@ and (orientation : portrait) {
         width: 250px;
         margin-top: 0.55em;
         height: auto;
+    }
+
+    .album-container, .album-image-container {
+        display: block;
+        width: calc(100% + 2em);
+        margin-left: -1em;
     }
 }

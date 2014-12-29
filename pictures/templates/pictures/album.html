@@ -4,12 +4,12 @@
 <article>
     <section>
         <h1 {%if user.is_superuser%}contenteditable{%endif%}>{{album.stream_title}}</h1>
-        <small>Subtitle goes here</small>
+        <small>{{album.subtitle}}</small>
     </section>
     <section class="album-images edit-mode">
     {% for image in images %}<!--
-        --><a class="album-image-container" style="background-image: url('{{image.thumb}}');" href="{{image.full}}">
-            {%if user.is_superuser%}<section class="make-default-image">Make Default</section>{% endif %}
+        --><a class="album-image-container" target="_blank" style="background-image: url('{{image.thumb}}');" href="{{image.full}}">
+            {%if user.is_superuser%}<section class="make-default-image">make album thumbnail</section>{% endif %}
         </a><!--
     -->{% endfor %}
     </section>
