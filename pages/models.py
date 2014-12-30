@@ -73,6 +73,13 @@ class Page(Streamable):
     def stream_title(self):
         return self.get_page_text().title
 
+    def __unicode__(self):
+        try:
+            txt = self.get_page_text()
+            return '(%s)%s' % (self.last_updated_date, txt.title, )
+        except AttributeError:
+            return super(Page, self).__unicode__()
+
     class Meta:
         verbose_name = "Page"
         verbose_name_plural = "Pages"
