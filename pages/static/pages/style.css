@@ -130,7 +130,7 @@ article .article-header h1{
     padding-top: 0.8em;
     z-index: 1;
 }
-article .article-header.has-background h1{
+article .article-header.has-background h1 a{
     color: #fffefc;
 }
 .side-content article{
