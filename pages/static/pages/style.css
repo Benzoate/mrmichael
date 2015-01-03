@@ -224,6 +224,14 @@ h2{
 .album-images.edit-mode .album-image-container:hover .make-default-image{
     opacity: 1.0;
 }
+.album-images.dragover{
+    outline: 2px solid #1E1E36;
+    position: relative;
+    opacity: 0.5;
+}
+.uploading{
+    color: #1E1E36;
+}
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (min-device-width : 320px) 

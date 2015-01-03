@@ -3,7 +3,7 @@ import datetime
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from pictures import models
+from pictures import models, forms
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
@@ -44,6 +44,14 @@ def album(request, album_id):
         'images': images
     }
     return render(request, 'pictures/album.html', dic)
+
+
+def upload_image(request, album_id):
+    if request.method == 'POST':
+        form = forms.AlbumImageUploadForm(request.POST, request.FILES)
+        new_item = form.save()
+
+        return HttpResponse(new_item.pk)
 
 
 def get_image(request, pk):

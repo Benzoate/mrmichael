@@ -74,7 +74,7 @@ class AlbumInformation(page_models.Translatable):
 
 class AlbumImage(models.Model):
     album = models.ForeignKey(Album)
-    image = ImageWithThumbsField(sizes=((640,480),))
+    image = ImageWithThumbsField(sizes=((640, 480), ))
 
     def save(self, *args, **kwargs):
         super(AlbumImage, self).save(*args, **kwargs)
