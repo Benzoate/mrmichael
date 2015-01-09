@@ -3,12 +3,15 @@ import datetime
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.utils import translation
 from pictures import models, forms
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
 
 def index(request):
+    lang = translation.get_language_from_request(request)
+    translation.activate(lang)
     albums = models.Album.objects
     if not request.user.is_superuser:
         albums = albums.filter(published=True)
@@ -26,6 +29,8 @@ def index(request):
 
 
 def album(request, album_id):
+    lang = translation.get_language_from_request(request)
+    translation.activate(lang)
     if album_id == 'new':
         new_album = models.Album()
         new_album.last_updated_date = datetime.datetime.now()
