@@ -15,3 +15,5 @@ class CachedS3BotoStorage(S3BotoStorage):
         name = super(CachedS3BotoStorage, self).save(name, content)
         self.local_storage._save(name, content)
         return name
+
+MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')

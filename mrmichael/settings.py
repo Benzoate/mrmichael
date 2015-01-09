@@ -115,8 +115,8 @@ COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',
 
 if ON_HEROKU:
     STATICFILES_STORAGE = 'mrmichael.storage.CachedS3BotoStorage'
+    DEFAULT_FILE_STORAGE = 'mrmichael.storage.MediaRootS3BotoStorage'
     COMPRESS_STORAGE = STATICFILES_STORAGE
-    DEFAULT_FILE_STORAGE = 'mrmichael.storage.CachedS3BotoStorage'
 
     AWS_QUERYSTRING_AUTH = False
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
