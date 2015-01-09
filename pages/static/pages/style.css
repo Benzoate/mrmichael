@@ -220,6 +220,7 @@ h2{
 }
 .album-images{
     margin: 1em 0;
+    min-height: 5em;
 }
 .album-images.edit-mode .album-image-container:hover .make-default-image{
     opacity: 1.0;
