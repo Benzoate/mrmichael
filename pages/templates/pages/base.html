@@ -1,10 +1,15 @@
 {% load staticfiles %}
+{% load compress %}
 {% load pages_tags %}
 <html>
     <head>
         <title>MrMichael</title>
-        <link type="text/css" rel="stylesheet" href="{% static "pages/style.css"%}">
-        <script src="{% static "pages/jquery.js" %}"></script>
+        {% compress css %}
+            <link type="text/css" rel="stylesheet" href="{% static "pages/style.css"%}">
+        {% endcompress %}
+        {% compress js %}
+            <script src="{% static "pages/jquery.js" %}"></script>
+        {% endcompress %}
     </head>
     <body>
         <header>
