@@ -115,12 +115,11 @@ COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',
                         'compressor.filters.cssmin.CSSMinFilter']
 
 if ON_HEROKU:
-    STATICFILES_STORAGE = 'mrmichael.CachedS3BotoStorage'
+    STATICFILES_STORAGE = 'mrmichael.storage.CachedS3BotoStorage'
     COMPRESS_STORAGE = STATICFILES_STORAGE
-    DEFAULT_FILE_STORAGE = 'mrmichael.CachedS3BotoStorage'
+    DEFAULT_FILE_STORAGE = 'mrmichael.storage.CachedS3BotoStorage'
     AWS_QUERYSTRING_AUTH = False
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_FILE_BUFFER_SIZE = 5242880
     MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
