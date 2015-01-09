@@ -24,7 +24,7 @@ class Album(page_models.Streamable):
             info = AlbumInformation.objects.get(language=lang, album=self)
         except AlbumInformation.DoesNotExist:
             if '-' not in lang:
-                if info == settings.LANGUAGE_CODE:
+                if lang == settings.LANGUAGE_CODE:
                     return None
                 return self.get_album_information(lang=settings.LANGUAGE_CODE)
             try:
