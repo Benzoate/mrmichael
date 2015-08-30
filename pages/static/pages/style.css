@@ -1,7 +1,8 @@
-body{
+body, html{
     font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
     background: #f0ede9;
     color: #1E1E36;
+    padding: 0;
 }
 a{
     color: #D62F2F;
@@ -76,6 +77,13 @@ header nav ul li.selected a, header nav ul li:hover a{
     margin-left: 1.5em;
     margin-top: 5.5em;
     display: inline-block;
+    min-height: 10em;
+    min-width: 24em;
+    min-width: 60ch;
+    max-width: 48em;
+    max-width: 120ch;
+    width: calc(100% - 34em);
+    /*overflow: hidden;*/
 }
 .side-content{
     margin: 0.5em;
@@ -83,14 +91,13 @@ header nav ul li.selected a, header nav ul li:hover a{
     margin-top: 5.5em;
     display: inline-block;
     vertical-align: top;
+    width: 29em;
 }
 article{
     background-color: #fffefc;
-    padding: 5em;
-    padding-bottom: 2em;
     min-height: 10em;
-    min-width: 10em;
-    width: 35em;
+    width: 100%;
+
     margin: 0;
     margin-bottom: 2em;
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.44);
@@ -99,8 +106,8 @@ article{
 }
 article .article-header{
     background-size: cover;
-    margin-left: -5em;
-    margin-top: -5em;
+    margin-left: -3em;
+    margin-top: -3em;
     padding-left: 5em;
     margin-bottom: 2em;
     width: calc(100% - -5em);
@@ -133,7 +140,12 @@ article .article-header h1{
 article .article-header.has-background h1 a{
     color: #fffefc;
 }
+article .page-content{
+    margin: 2em;
+}
 .side-content article{
+    min-width: 25em;
+    max-width: 25em;
     width: 25em;
     padding: 2em;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24);
@@ -168,7 +180,7 @@ h2{
     font-size: 0.7em;
     font-style: italic;
     text-align: right;
-    margin: 0;
+    margin: 2em;
     margin-top: 4em;
     padding: 0;
 }
@@ -232,6 +244,84 @@ h2{
 }
 .uploading{
     color: #1E1E36;
+}
+/* iPad landscape */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+    .main-content{
+        margin: 0.5em;
+        margin-left: 0.25em;
+        margin-top: 5em;
+        min-width: 16em;
+        min-width: 40ch;
+        max-width: 48em;
+        max-width: 120ch;
+        width: calc(100% - 19.125em);
+        /*overflow: hidden;*/
+    }
+    article{
+        min-height: 10em;
+        width: 100%;
+
+        margin: 0;
+        margin-bottom: 2em;
+        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.44);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .side-content{
+        margin: 0.5em;
+        margin-left: 0.5em;
+        margin-top: 5em;
+        margin-right: 0em;
+        display: inline-block;
+        vertical-align: top;
+        width: 17.5em;
+    }
+    .side-content article{
+        font-size: 0.6em;
+    }
+}
+/* iPad portrait */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { 
+
+    .main-content{
+        margin: 0.25em;
+        margin-top: 5em;
+        width: calc(100% - 0.5em);
+        /*overflow: hidden;*/
+    }
+    article{
+        min-height: 10em;
+        width: 100%;
+
+        margin: 0;
+        margin-bottom: 2em;
+        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.44);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .side-content{
+        margin: 0.5em;
+        margin-top: 1em;
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 2.5em);
+    }
+    .side-content article{
+        min-width: inherit;
+        max-width: inherit;
+        width: inherit;
+        font-size: 1em;
+    }
 }
 /* Smartphones (portrait) ----------- */
 @media only screen 

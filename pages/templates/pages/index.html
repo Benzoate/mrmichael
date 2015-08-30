@@ -8,7 +8,9 @@
                     <section {% if page.header_bg %} class="article-header has-background" style="background-image: url('{{page.header_bg}}');"{% else %}class="article-header"{% endif %}>
                         <h1><a href="/page/{{page.url}}/">{{page_text.title}}</a></h1>
                     </section>
-                    {{page_text.text|safe}}
+                    <section class="page-content">
+                        {{page_text.text|safe}}
+                    </section>
                     
                     <p class="published-date">{% if page.published %}{{page.last_updated_date}}{% endif %}</p>
                 </article>

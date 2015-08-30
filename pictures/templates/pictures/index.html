@@ -2,13 +2,17 @@
 {% load staticfiles %}
 {% block main_content %}
 <article>
-    <h1>Albums</h1>
+    <section {% if page.header_bg %} class="article-header has-background" style="background-image: url('{{page.header_bg}}');"{% else %}class="article-header"{% endif %}>
+        <h1>Albums</h1>
+    </section>
 
+                    <section class="page-content">
     {% for album in albums %}<a class="album-container" style="background-image: url('{{album.thumbnail}}');" href="{{album.url}}"
     ><p>{%if not album.info%}Untitled - {{album.album.pk}}{%endif%}{{album.info.title.title}}</p
     ></a>{% endfor %}<!--
     -->{% if user.is_superuser %}<!--
         --><a class="album-container" href="/pictures/album/new/"><p>New Album</p></a>
     {% endif %}
+    </section>
 </article>
 {% endblock %}
