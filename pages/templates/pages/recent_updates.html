@@ -1,9 +1,12 @@
 {% load pages_tags %}
-<h2>Recently</h2>
-<p>
-    <ul>
-        {% for update in recent_updates %}
-        <li><a href="{{update.url}}">{{update.title}}</a> – <small title="{{update.date}}">({{update.date|human_date}})</small></li>
-        {% endfor %}
-    </ul>
-</p>
+
+<article>
+    <h2>Recently</h2>
+    <p>
+        <ul>
+            {% for update in recent_updates %}
+            <li><a href="{{update.url}}">{{update.title}}</a> – <small title="{{update.date}}">({{update.date|human_date}})</small></li>
+            {% endfor %}
+        </ul>
+    </p>
+</article>
