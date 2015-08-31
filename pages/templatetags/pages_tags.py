@@ -1,11 +1,24 @@
 from django import template
 from django.template import loader
 from pages import models
+
+import arrow
 register = template.Library()
 
 
 def title_url_from_streamable(streamable):
-    return {'title': streamable.stream_title(), 'url': streamable.stream_url()}
+    return {'title': streamable.stream_title(),
+            'url': streamable.stream_url(),
+            'date': streamable.last_updated_date}
+
+
+def human_date(item):
+    try:
+        return arrow.Arrow.fromdatetime(item).humanize()
+    except AttributeError:
+        if item:
+            return arrow.get(item).humanize()
+        return ''
 
 
 def recent_updates(context):
@@ -17,3 +30,4 @@ def recent_updates(context):
     return template.render(context)
 
 register.simple_tag(recent_updates, takes_context=True)
+register.filter('human_date', human_date)

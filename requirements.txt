@@ -1,5 +1,6 @@
 Django==1.7.1
 Pillow==2.6.1
+arrow==0.6.0
 boto==2.34.0
 cssmin==0.2.0
 dj-database-url==0.3.0
@@ -10,6 +11,7 @@ django-storages==1.1.8
 django-thumbs==0.4
 gunicorn==19.1.1
 psycopg2==2.5.4
+python-dateutil==2.4.2
 rjsmin==1.0.10
 six==1.9.0
 static3==0.5.1
