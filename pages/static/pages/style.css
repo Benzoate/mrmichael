@@ -250,6 +250,39 @@ h3{
 .uploading{
     color: #1E1E36;
 }
+@media only screen
+and (max-width : 1175px){
+
+    .main-content{
+        margin: 0.25em;
+        margin-top: 5em;
+        width: calc(100% - 0.5em);
+    }
+    article{
+        min-height: 10em;
+        width: 100%;
+
+        margin: 0;
+        margin-bottom: 2em;
+        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.44);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .side-content{
+        margin: 0.5em;
+        margin-top: 1em;
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 2.5em);
+    }
+    .side-content article{
+        min-width: inherit;
+        max-width: inherit;
+        width: inherit;
+        font-size: 1em;
+    }
+}
 /* iPad landscape */
 @media only screen 
 and (min-device-width : 768px) 
@@ -282,12 +315,16 @@ and (orientation : landscape) {
         margin: 0.5em;
         margin-left: 0.5em;
         margin-top: 5em;
-        margin-right: 0em;
+        margin-right: 0;
         display: inline-block;
         vertical-align: top;
         width: 17.5em;
     }
     .side-content article{
+        min-width: 25em;
+        max-width: 25em;
+        width: 25em;
+        padding: 2em;
         font-size: 0.6em;
     }
 }
@@ -366,39 +403,5 @@ and (orientation : portrait) {
         display: block;
         width: calc(100% - -2em);
         margin-left: -1em;
-    }
-}
-@media only screen
-and (max-width : 1175px){
-
-    .main-content{
-        margin: 0.25em;
-        margin-top: 5em;
-        width: calc(100% - 0.5em);
-        /*overflow: hidden;*/
-    }
-    article{
-        min-height: 10em;
-        width: 100%;
-
-        margin: 0;
-        margin-bottom: 2em;
-        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.44);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .side-content{
-        margin: 0.5em;
-        margin-top: 1em;
-        display: inline-block;
-        vertical-align: top;
-        width: calc(100% - 2.5em);
-    }
-    .side-content article{
-        min-width: inherit;
-        max-width: inherit;
-        width: inherit;
-        font-size: 1em;
     }
 }
