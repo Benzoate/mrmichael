@@ -1,12 +1,18 @@
+{% load cache %}
 {% load pages_tags %}
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
 
 <article>
     <h2>Recently</h2>
     <p>
         <ul>
+            {% cache 300 recentupdate_cache LANGUAGE_CODE %}
             {% for update in recent_updates %}
             <li><a href="{{update.url}}">{{update.title}}</a> – <small title="{{update.date}}">({{update.date|human_date}})</small></li>
             {% endfor %}
+            {% endcache %}
         </ul>
     </p>
 </article>

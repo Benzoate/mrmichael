@@ -146,6 +146,7 @@ article .article-header.has-background h1 a{
 }
 article .page-content{
     margin: 2em;
+    max-width: 80ch;
 }
 .side-content article{
     min-width: 25em;

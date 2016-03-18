@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import translation
 from django.conf import settings
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
+import markdown
 
 
 class Streamable(models.Model):
@@ -88,6 +92,7 @@ class Page(Streamable):
 class PageText(Translatable):
     title = models.TextField()
     text = models.TextField()
+    text_html = models.TextField(blank=True)
     page = models.ForeignKey(Page)
 
     class Meta:
@@ -96,3 +101,9 @@ class PageText(Translatable):
 
     def __unicode__(self):
         return '[%s]%s' % (self.language, self.title)
+
+@receiver(pre_save, sender=PageText)
+def page_text_save(sender, instance, *args, **kwargs):
+    if not instance:
+        return
+    instance.text_html = markdown.markdown(instance.text, extensions=['markdown.extensions.codehilite'])

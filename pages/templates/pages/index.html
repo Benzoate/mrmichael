@@ -1,19 +1,23 @@
 {% extends "pages/base.html" %}
 {% load staticfiles %}
+{% load cache %}
 {% load pages_tags %}
             {% block main_content %}
             {% for page in pages %}
                 {% with page_text=page.page_text %}
+                {% cache 300 pagetext_cache page_text.pk %}
                 <article>
                     <section {% if page.header_bg %} class="article-header has-background" style="background-image: url('{{page.header_bg}}');"{% else %}class="article-header"{% endif %}>
                         <h1><a href="/page/{{page.url}}/">{{page_text.title}}</a></h1>
                     </section>
                     <section class="page-content">
-                        {{page_text.text|safe}}
+                            {{page_text.text_html|safe}}
                     </section>
                     
                     <p class="published-date">{% if page.published %}{{page.last_updated_date}}{% endif %}</p>
                 </article>
+
+                {% endcache %}
                 {% endwith %}
             {% endfor %}
             {% endblock %}
