@@ -20,4 +20,23 @@
                 {% endcache %}
                 {% endwith %}
             {% endfor %}
+            {% if num_pages %}
+                <footer class="page_info">
+                    <a href="{{request.path}}?page={{previous_page}}">«</a>
+                    Page
+                    <select id="page_selector">
+                    {% for idx in page_range %}
+                        <option val="{{idx}}" {%if current_page == idx%}selected{%endif%}>{{idx}}</option>
+                    {% endfor %}
+                    </select>of {{num_pages}}
+                    <a href="{{request.path}}?page={{next_page}}">»</a>
+                </footer>
+                <script>
+                    $(document).ready(function(){
+                        $('#page_selector').change(function(){
+                            window.location.href = "{{request.path}}?page=" + $(this).val();
+                        });
+                    });
+                </script>
+            {% endif %}
             {% endblock %}

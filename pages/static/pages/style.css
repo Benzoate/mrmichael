@@ -10,6 +10,7 @@ a{
     text-decoration: underline;
     cursor: pointer;
 }
+
 header:before{
     content: '';
     display: block;
@@ -252,6 +253,13 @@ h3{
 }
 .uploading{
     color: #1E1E36;
+}
+.page_info{
+    text-align: center;
+}
+.page_info a{
+    margin: 0 1em;
+    text-decoration: none;
 }
 @media only screen
 and (max-width : 1175px){
